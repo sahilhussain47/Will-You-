@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Letter For You</title>
+
+<style>
+body{
+    margin:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:#f7e7ce;
+    font-family:Arial, sans-serif;
+}
+
+.container{
+    text-align:center;
+}
+
+.envelope{
+    width:220px;
+    height:140px;
+    background:#d86c70;
+    position:relative;
+    margin:auto;
+    cursor:pointer;
+    transition:transform .4s;
+}
+
+.envelope:hover{
+    transform:scale(1.05);
+}
+
+.flap{
+    position:absolute;
+    top:0;
+    left:0;
+    width:0;
+    height:0;
+    border-left:110px solid transparent;
+    border-right:110px solid transparent;
+    border-top:70px solid #c2555a;
+    transform-origin:top;
+    transition:.6s;
+}
+
+.message{
+    position:absolute;
+    top:15px;
+    left:15px;
+    width:190px;
+    height:110px;
+    background:white;
+    padding:10px;
+    box-sizing:border-box;
+    border-radius:5px;
+    transform:translateY(20px);
+    opacity:0;
+    transition:.6s;
+    font-size:16px;
+}
+
+.open .flap{
+    transform:rotateX(180deg);
+}
+
+.open .message{
+    transform:translateY(-60px);
+    opacity:1;
+}
+
+.note{
+    margin-top:25px;
+    color:#555;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="envelope" onclick="openLetter()" id="env">
+        <div class="flap"></div>
+        <div class="message">
+            Will You Marry Me, Ms. Sumaiyya? <br><br>
+        </div>
+    </div>
+
+    <div class="note">📩 Click the envelope</div>
+</div>
+
+<script>
+function openLetter(){
+    document.getElementById("env").classList.toggle("open");
+}
+</script>
+
+</body>
+</html>
